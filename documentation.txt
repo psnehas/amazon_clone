@@ -1,0 +1,97 @@
+Firebase backend setup:
+Steps for firebase:
+    go to firebase.com
+    create a project
+    go into the project and click on "add a web app </> icon"
+    register app
+    firebase sdk (hit next, this step is not required)
+    install firebase cli -> do an npm install for firebase tools
+    ( npm install -g firebase-tools)
+    deployment step -> later
+Next go to project overview-> project settings -> scroll to firebase SDK snippet, click on config and copy the config method. 
+Create firebase.js and copy that config into the file.
+
+react-currency-format -> makes rendering money format easier.
+
+
+React Context API: the main ingredient of the application.
+Context lets us maintain the states in a central datalayer (like store in Redux) from where the states can be used by any component. 
+This eliminates the need for passing the states through props and chaining them throughout.
+
+
+selectors => reducers
+
+
+Firebase user creation and authentication (using email and password):
+Sign in method -> Email/Password
+-> method on registration => createUserWithEmailAndPassword
+-> method on login => signInWithEmailAndPassword
+
+
+
+npm install firebase
+Hosting the application on firebase::
+terminal commands:
+
+1. firebase login -> this opens a login page on chrome for CLI authentication
+2. firebase init -> initializes application -> selecting options here are imp. Check below
+    -> select Hosting: Configure and deploy Firebase Hosting sites
+    -> use an existing project ( select the amazon-clone project that we created on firebase earlier)
+    -> enter build for What do you want to use as your public directory? (this is crucial for react projects)
+    -> Configuure as a single-page app ? Yes
+
+    -> Because this was the first time, got a few more questions:
+    1. set up automatic builds and deploys with github? Yes
+    2. provide github repo link. (psnehas/amazon-clone)
+    -> firebase initialization complete!
+3. npm run build -> creates a production build
+4. firebase deploy
+
+
+Payment page, Proceed to Checkout page, Cloud function to process stripe payment - Serverless architecture!
+Firebase cloud functions will run the express Server
+
+Proceed to checkout ->my orders-> enter card details ( processed through stripe) -> order confirmation with a payment id
+
+payment stripe library:
+npm install @stripe/stripe-js
+npm install @stripe/react-stripe-js
+
+need blaze plan on firebase to make outbound request to stripe.
+
+---------
+Cloud functions
+----------
+firebase init
+Functions: Configure and deploy Cloud Functions
+what language ? -> Javascript
+Do you want to use ESLint to catch probable bugs and enforce style  -> Yes
+do you want to install dependencies with npm now -> Yes
+
+Next npm install express, cors and stripe in functions folder
+
+then go to stripe and get the private API key,
+(dasahboard.stripe.com/test/apikeys)
+
+firebase.emulators:start -> emulates the deployment action on local.
+as if making the cloud functions available on local spinning up the express server.
+
+
+
+
+npm install moment
+
+FINAL DEPLOYMENT FOR BACKEND:
+go to functions folder then type: firebase deploy --only functions
+
+this will fail on the free version (SPARK).
+Update plan to blaze 
+
+
+
+================================
+Problems faced:
+1. React Hooks, Context API dispatch functions -> 
+2. Firebase 
+
+

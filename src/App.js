@@ -16,7 +16,7 @@ const promise = loadStripe("pk_test_51HwawkCRRmxIqORSkEcyHhM4KupTcOYIe86Lfa8tiDM
 
 
 function App() {
-  const [dispatch] = useStateValue();
+  const [{},dispatch] = useStateValue();
   useEffect(()=>{
     // as soon as the app loads, we attach this listener/observer that tracks which user logged in/out
     auth.onAuthStateChanged(authUser =>{
